@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TAXES</title>
+</head>
+
+<body>
+    <h1>Tax Checker</h1>
+    <form id="myForm">
+        Type In Total Amount:
+        <input id="amountID" placeholder="In Dollars" value="" type="text" name="fname">
+        <br>
+        <br> Type in Tax:
+        <input id="taxAmount" placeholder="%" type="text" name="lname">
+        <br>
+        <br>
+        <input type="submit" value="Submit" onclick="runCheck()">
+    </form>
+
+    <h2>Amount of Tax (in cents)</h2>
+    <p id="amountTax"></p>
+
+    <script>
+
+        var runCheck = function () {
+            event.preventDefault();
+// grabbing the value from the form
+            var input = document.getElementById("amountID").value;
+            var tax = document.getElementById("taxAmount").value;
+
+// creating the funciton that compares both inputs 
+            var taxCheck = function (amount, taxAmount) {
+                finalNumber = amount * (taxAmount * .01)
+
+// returning the value to the client
+                var centivizedNumber = finalNumber * 100;
+                var finalAppendHTML = "&#162 " + centivizedNumber
+                document.getElementById("amountTax").innerHTML = finalAppendHTML;
+            }
+
+// function for resetting the input form
+            var reset = function () {
+                document.getElementById("myForm").reset();
+            }
+// inserting data into the taxCheck function and reseting the form
+            taxCheck(input, tax)
+            reset()
+        }
+        
+    </script>
+</body>
+
+</html>

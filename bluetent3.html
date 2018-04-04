@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ANAGRAMS</title>
+</head>
+
+<body>
+    <h1>Anagram Checker</h1>
+    <form id="myForm">
+        Type in first word:
+        <input id="firstWord" placeholder="" value="" type="text" name="fname">
+        <br>
+        <br> Type in second word:
+        <input id="secondWord" placeholder="" type="text" name="lname">
+        <br>
+        <br>
+        <input type="submit" value="Submit" onclick="runCheck()">
+    </form>
+
+    <h2>Is these two words Anagrams?</h2>
+    <p id="result"></p>
+
+    <script>
+
+        var runCheck = function () {
+            event.preventDefault();
+            
+// retreiving values from HTML
+            var firstWordInput = document.getElementById("firstWord").value;
+            var secondWordInput = document.getElementById("secondWord").value;
+            
+// function to determine if letters are in other word
+            var anagramCheck = function (firstWordCheck, secondWordCheck) {
+
+// cleaning the inputs to be able to format them and see if there are the same characters in each arguement
+                cleanedFirstWord = firstWordCheck.split("").sort().join("").trim();
+                cleanedSecondWord = secondWordCheck.split("").sort().join("").trim();
+
+// comparing the cleaned arguements to each other to return a true or false
+                if (cleanedFirstWord === cleanedSecondWord){
+                    return true
+                }else{
+                    return false
+                }
+                console.log("first word " + cleanedFirstWord)
+                console.log("secondword " + cleanedSecondWord)
+            }
+          
+// returning value depending on the results of anagramCheck being true or false
+            if (anagramCheck===true){
+                document.getElementById("result").innerHTML = "Yes, these inputs are anagrams";
+            }
+            else{
+                document.getElementById("result").innerHTML = "No, " + firstWordInput + " & " + secondWordInput + " are not anagrams";
+            }
+
+// resetting the input form
+            var reset = function () {
+                document.getElementById("myForm").reset();
+            }
+            
+// calling anagramCheck with the arguements set to users input and reseting the checker
+            anagramCheck(firstWordInput, secondWordInput);
+            reset();
+        }
+        
+    </script>
+</body>
+
+</html>

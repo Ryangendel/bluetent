@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FizzBuzz</title>
+</head>
+
+<body onload="fizzBuzzCheck()">
+
+    <h1>FizzBuzz!</h1>
+    <h2>FizzBuzz:</h2>
+    <p id="fizzbuzz"></p>
+    <h2>Buzz:</h2>
+    <p id="buzz"></p>
+    <h2>Fizz:</h2>
+    <p id="fizz"></p>
+    <h2>None:</h2>
+    <p id="numbers"></p>
+
+
+    <script>
+        var nonFizzBuzzAr = [];
+        var fizzAr = [];
+        var buzzAr = [];
+        var fizzBuzzAr = [];
+
+        var fizzBuzzCheck = function () {
+            for (var i = 1; i <= 100; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    fizzBuzzAr.push(i);
+                    document.getElementById("fizzbuzz").innerHTML = fizzBuzzAr.join(", ");
+                }
+                else if (i % 3 === 0) {
+                    fizzAr.push(i);
+                    document.getElementById("fizz").innerHTML = fizzAr.join(", ");
+                }
+                else if (i % 5 === 0) {
+                    buzzAr.push(i);
+                    document.getElementById("buzz").innerHTML = buzzAr.join(", ");
+                }
+                else {
+                    nonFizzBuzzAr.push(i)
+                    document.getElementById("numbers").innerHTML = nonFizzBuzzAr.join(", ");
+                }
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

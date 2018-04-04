@@ -7,6 +7,9 @@
 </head>
 
 <body>
+
+        <!-- <button type="button">Clickable!</button> -->
+
     <h1>Anagram Checker</h1>
     <form id="myForm">
         Type in first word:
@@ -19,14 +22,13 @@
         <input type="submit" value="Submit" onclick="runCheck()">
     </form>
 
-    <h2>Is these two words Anagrams?</h2>
+    <h2>Are these two words Anagrams?</h2>
     <p id="result"></p>
 
     <script>
 
         var runCheck = function () {
             event.preventDefault();
-            
 // retreiving values from HTML
             var firstWordInput = document.getElementById("firstWord").value;
             var secondWordInput = document.getElementById("secondWord").value;
@@ -44,26 +46,31 @@
                 }else{
                     return false
                 }
-                console.log("first word " + cleanedFirstWord)
-                console.log("secondword " + cleanedSecondWord)
             }
-          
-// returning value depending on the results of anagramCheck being true or false
-            if (anagramCheck===true){
-                document.getElementById("result").innerHTML = "Yes, these inputs are anagrams";
-            }
-            else{
-                document.getElementById("result").innerHTML = "No, " + firstWordInput + " & " + secondWordInput + " are not anagrams";
-            }
+        //         console.log("first word " + cleanedFirstWord)
+        //         console.log("second word " + cleanedSecondWord)
+          console.log("this is anagram check: "+ anagramCheck)
 
+           
 // resetting the input form
             var reset = function () {
                 document.getElementById("myForm").reset();
             }
             
 // calling anagramCheck with the arguements set to users input and reseting the checker
-            anagramCheck(firstWordInput, secondWordInput);
+           var run = anagramCheck(firstWordInput, secondWordInput);
             reset();
+            console.log("this is the boolean" + run)  
+
+            // returning value depending on the results of anagramCheck being true or false
+            
+            if (run == true){
+                document.getElementById("result").innerHTML = "Yes, these inputs are anagrams";
+                
+            }
+            else{
+                document.getElementById("result").innerHTML = "No, " + firstWordInput + " & " + secondWordInput + " are not anagrams";
+            } 
         }
         
     </script>

@@ -47,9 +47,8 @@
                     return false
                 }
             }
-        //         console.log("first word " + cleanedFirstWord)
-        //         console.log("second word " + cleanedSecondWord)
-          console.log("this is anagram check: "+ anagramCheck)
+                // console.log("first word " + cleanedFirstWord)
+                // console.log("second word " + cleanedSecondWord)
 
            
 // resetting the input form
@@ -58,14 +57,14 @@
             }
             
 // calling anagramCheck with the arguements set to users input and reseting the checker
-           var run = anagramCheck(firstWordInput, secondWordInput);
+           var results = anagramCheck(firstWordInput, secondWordInput);
             reset();
-            console.log("this is the boolean" + run)  
+            // console.log("this is the boolean" + run)  
 
-            // returning value depending on the results of anagramCheck being true or false
+// returning value depending on the results of anagramCheck being true or false
             
-            if (run == true){
-                document.getElementById("result").innerHTML = "Yes, these inputs are anagrams";
+            if (results == true){
+                document.getElementById("result").innerHTML = "Yes, " + firstWordInput + " & " + secondWordInput + " are anagrams";
                 
             }
             else{
